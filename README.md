@@ -108,3 +108,8 @@ export class SearchWeatherPage {
 ```
 #### HTML Reports
 Project generate HTML project after each execution in dir "./reports". If any scenario fails, screenshot is taken and attach with HTML report.
+
+#### Jenkins
+Jenkinsfile contain the jenkins pipeline steps. However, running on jenkins will require a master/slave with browser chrome/firefox installed 
+or selenium grid having chrome and firefox node can be used. if selenium grid then protractor.conf "seleniumAddress" config need to be updated 
+with hub ip.
