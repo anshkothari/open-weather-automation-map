@@ -13,7 +13,7 @@ Automation project is created using protractor, cucumber(BDD) and is written in 
 ### Getting Started
 
 #### Pre-requisites
-1.NodeJS installed should be installed in the system.
+1.NodeJS should be installed in the system.
 
 2.Chrome or Firefox browsers installed.
 
@@ -45,3 +45,66 @@ npm run webdriver-start
 ```
 npm test
 ```
+
+### Project Structure
+```
+   ----open-weather-map-automation
+				   \------config (protractor config file)
+				   \------features (Cucumber feature files)
+				   \------pages (pages class e.g searchWeatherPage.class)
+				   \------support (common methods)
+				   \------stepdefinitions (cucumber features step definitions)
+				   \------package.json
+				   \------tsconfig.json
+				   \------Jenkinsfile
+				   \------README.md
+```
+#### Feature file
+```
+@execute
+Feature: Verify search weather functionality
+
+ Scenario: Verify user is able to search weather for valid city name
+  Given user navigates to url "https://openweathermap.org"
+   When user enter "Mumbai" in search text box
+   And user click on search button
+   Then user should be navigated to search result page
+   And weather for city "Mumbai" must be shown
+```
+#### Step Definitions
+    
+```
+import { CommonUtils } from './../support/commonUtils';
+import { browser, protractor } from "protractor";
+import { SearchWeatherPage } from "../pages/search-weather-page";
+import { CallbackStepDefinition, defineSupportCode } from 'cucumber';
+const chai = require("chai").use(require("chai-as-promised"));
+const expect = chai.expect;
+
+defineSupportCode(function ({ Given, When, Then }) {
+    let searchWeatherPage: SearchWeatherPage = new SearchWeatherPage();
+    let commonUtils: CommonUtils = new CommonUtils();
+
+    Given('user navigates to url {string}', function (url: string, callback: CallbackStepDefinition) {
+        browser.get(url).then(function () {
+            callback();
+        });
+    });
+});
+```
+
+#### Page Class
+```
+import { $, ElementFinder, element, by } from "protractor";
+
+export class SearchWeatherPage {
+
+    public searchTxtBox: ElementFinder;
+
+    constructor() {
+        this.searchTxtBox = $('#searchform > div > #q')
+    }
+}
+```
+#### HTML Reports
+Project generate HTML project after each execution in dir "./reports". If any scenario fails, screenshot is taken and attach with HTML report.
