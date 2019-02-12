@@ -111,5 +111,5 @@ Project generate HTML project after each execution in dir "./reports". If any sc
 
 #### Jenkins
 Jenkinsfile contain the jenkins pipeline steps. However, running on jenkins will require a master/slave with browser chrome/firefox installed 
-or selenium grid having chrome and firefox node can be used. if selenium grid is used Sthen protractor.conf "seleniumAddress" config need to be updated 
+or selenium grid having chrome and firefox node can be used. if selenium grid is used then protractor.conf "seleniumAddress" config need to be updated 
 with hub ip.
