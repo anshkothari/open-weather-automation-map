@@ -83,7 +83,30 @@ defineSupportCode(function ({ Given, When, Then }) {
             searchWeatherPage.currentLocationLink.isDisplayed().then(function (isDisplayed) {
                 expect(isDisplayed).to.be.true;
                 callback();
+            }, function (err) {
+                callback();
             });
         });
     });
+
+    Then('no result is shown', function (callback: CallbackStepDefinition) {
+        commonUtils.waitForElement(searchWeatherPage.searchString).then(function () {
+            searchWeatherPage.searchResult.isDisplayed().then(function (isDisplayed) {
+                expect(isDisplayed).to.be.false;
+                callback();
+            }, function (err) {
+                callback();
+            });
+        });
+    });
+
+    Then('search box is auto populated with {string}', function (expected: string, callback: CallbackStepDefinition) {
+        commonUtils.waitForElement(searchWeatherPage.searchString).then(function () {
+            searchWeatherPage.searchString.getAttribute('value').then(function (actual) {
+                expect(actual).to.contain(expected)
+                callback();
+            });
+        });
+    });
+
 });
