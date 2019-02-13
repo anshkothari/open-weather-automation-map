@@ -1,0 +1,101 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Verify search weather functionality",
+    "line": 2,
+    "id": "verify-search-weather-functionality",
+    "tags": [],
+    "uri": "features\\search-weather.feature",
+    "elements": [
+      {
+        "id": "verify-search-weather-functionality;verify-search-functionality-when-user-perform-empty-search",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Verify search functionality when user perform empty search",
+        "tags": [
+          {
+            "name": "@execute",
+            "line": 26
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 28,
+            "name": "user navigates to url \"https://openweathermap.org\"",
+            "match": {
+              "location": "build\\stepdefinitions\\search-weather.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24440000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "user click on search button",
+            "match": {
+              "location": "build\\stepdefinitions\\search-weather.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 7482000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "no result is shown",
+            "match": {
+              "location": "build\\stepdefinitions\\search-weather.js:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 105000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "search box is auto populated with \"London, UK\"",
+            "match": {
+              "location": "build\\stepdefinitions\\search-weather.js:91"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "build\\support\\setup.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
