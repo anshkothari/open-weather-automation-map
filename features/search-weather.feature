@@ -22,4 +22,11 @@ Feature: Verify search weather functionality
    Then page with title "Сurrent weather and forecast - OpenWeatherMap" must shown to user 
    And "Search" button must be visible
    And current location link must be visible
+   
+   
+ Scenario: Verify search functionality when user perform empty search
+  Given user navigates to url "https://openweathermap.org"
+   When user click on search button
+   Then no result is shown
+   And search box is auto populated with "London, UK"
   
