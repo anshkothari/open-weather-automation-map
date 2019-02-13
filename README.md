@@ -107,7 +107,7 @@ export class SearchWeatherPage {
 }
 ```
 #### HTML Reports
-Project generate HTML project after each execution in dir "./reports". If any scenario fails, screenshot is taken and attach with HTML report.
+Project generate HTML project after each execution in dir "./reports". If any scenario fails, screenshot is taken and attach with HTML report. For sample html report see dir: "./sample_reports/html/report.html".
 
 #### Jenkins
 Jenkinsfile contain the jenkins pipeline steps. However, running on jenkins will require a master/slave with browser chrome/firefox installed 
